@@ -1,2 +1,10 @@
+GET https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces
+###
+
 POST https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces
+Content-Type: application/json
+
+{
+	"location": "Helsinki"
+}
 ###
