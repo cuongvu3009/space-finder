@@ -11,6 +11,9 @@ handler(
     // }),
 
     httpMethod: "GET",
+    queryStringParameters: {
+      id: "22b9d838-0393-4ebf-a74f-02a92e05a3ab",
+    },
   } as any,
   {} as any
 );
