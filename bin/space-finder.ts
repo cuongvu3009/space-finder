@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-import "source-map-support/register";
-
 import * as cdk from "aws-cdk-lib";
 
 import { ApiStack } from "../lib/ApiStack";
@@ -15,5 +11,5 @@ const lambdaStack = new LambdaStack(app, "LambdaStack", {
   spacesTable: dataStack.spacesTable,
 });
 new ApiStack(app, "ApiStack", {
-  helloLambdaIntegration: lambdaStack.helloLambdataIntegration,
+  spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
 });
