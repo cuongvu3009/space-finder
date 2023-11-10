@@ -5,9 +5,21 @@ POST https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces
 Content-Type: application/json
 
 {
-	"location": "Helsinki"
+	"location": "Helsinki",
+	"name": "Show room"
 }
 ###
 
-GET https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces/
+GET https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces?id=10d00207-2f7e-4fae-b596-5e805540cb25
+###
+
+PUT https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces?id=10d00207-2f7e-4fae-b596-5e805540cb25
+Content-Type: application/json
+
+{
+	"name": "Headquater"
+}
+###
+
+DELETE https://mgrqx26qkd.execute-api.eu-north-1.amazonaws.com/prod/spaces?id=10d00207-2f7e-4fae-b596-5e805540cb25
 ###
