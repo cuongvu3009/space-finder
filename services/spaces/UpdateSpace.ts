@@ -42,7 +42,7 @@ export async function updateSpace(
   }
 
   return {
-    statusCode: 204,
+    statusCode: 400,
     body: JSON.stringify("Please provide correct args!"),
   };
 }

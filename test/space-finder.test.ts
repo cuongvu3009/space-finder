@@ -10,21 +10,27 @@ handler(
     // body: JSON.stringify({
     //   location: "Dublin",
     // }),
-
     // Get 1 space
     // httpMethod: "GET",
     // queryStringParameters: {
     //   id: "22b9d838-0393-4ebf-a74f-02a92e05a3ab",
     // },
+    //  Get spaceS
+    httpMethod: "GET",
 
     // Update 1 space
-    httpMethod: "PUT",
-    queryStringParameters: {
-      id: "22b9d838-0393-4ebf-a74f-02a92e05a3ab",
-    },
-    body: JSON.stringify({
-      location: "Kerava",
-    }),
+    // httpMethod: "PUT",
+    // queryStringParameters: {
+    //   id: "22b9d838-0393-4ebf-a74f-02a92e05a3ab",
+    // },
+    // body: JSON.stringify({
+    //   location: "Kerava",
+    // }),
+    // Delete 1 space
+    // httpMethod: "DELETE",
+    // queryStringParameters: {
+    //   id: "e06cee8f-5d67-4d3d-a3a0-20ae66ac1455",
+    // },
   } as any,
   {} as any
 );

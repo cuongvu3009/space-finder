@@ -5,6 +5,7 @@ import {
 } from "aws-lambda";
 
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { deleteSpace } from "./DeleteSpace";
 import { getSpaces } from "./GetSpaces";
 import { postSpaces } from "./PostSpaces";
 import { updateSpace } from "./UpdateSpace";
@@ -27,8 +28,10 @@ async function handler(
         return postResponse;
       case "PUT":
         const putResponse = await updateSpace(event, ddbClient);
-        console.log(putResponse);
         return putResponse;
+      case "DELETE":
+        const deleteResponse = await deleteSpace(event, ddbClient);
+        return deleteResponse;
       default:
         break;
     }
