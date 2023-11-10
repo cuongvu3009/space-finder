@@ -9,6 +9,7 @@ export async function getSpaces(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
+  // Get single space
   if (event.queryStringParameters) {
     if ("id" in event.queryStringParameters) {
       const spaceId = event.queryStringParameters["id"];
@@ -40,6 +41,7 @@ export async function getSpaces(
     }
   }
 
+  // Get all spaces
   const result = await ddbClient.send(
     new ScanCommand({
       TableName: process.env.TABLE_NAME, // get from LamdbaStack
