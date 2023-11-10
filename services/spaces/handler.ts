@@ -3,9 +3,9 @@ import {
   APIGatewayProxyResult,
   Context,
 } from "aws-lambda";
+import { JsonError, MissingFieldError } from "../shared/Validator";
 
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { MissingFieldError } from "../shared/Validator";
 import { deleteSpace } from "./DeleteSpace";
 import { getSpaces } from "./GetSpaces";
 import { postSpaces } from "./PostSpaces";
@@ -38,6 +38,13 @@ async function handler(
     }
   } catch (error: any) {
     if (error instanceof MissingFieldError) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify(error.message),
+      };
+    }
+
+    if (error instanceof JsonError) {
       return {
         statusCode: 400,
         body: JSON.stringify(error.message),

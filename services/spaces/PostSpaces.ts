@@ -1,16 +1,16 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import { createRandomId, parseJSON } from "../shared/Utils";
 
 import { marshall } from "@aws-sdk/util-dynamodb";
-import { v4 } from "uuid";
 import { validateAsSpaceEntry } from "../shared/Validator";
 
 export async function postSpaces(
   event: APIGatewayProxyEvent,
   ddbClient: DynamoDBClient
 ): Promise<APIGatewayProxyResult> {
-  const randomId = v4();
-  const item = JSON.parse(event.body as string);
+  const randomId = createRandomId();
+  const item = parseJSON(event.body as string);
   item.id = randomId;
   validateAsSpaceEntry(item);
 
