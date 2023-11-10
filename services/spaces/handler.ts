@@ -5,6 +5,7 @@ import {
 } from "aws-lambda";
 
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { MissingFieldError } from "../shared/Validator";
 import { deleteSpace } from "./DeleteSpace";
 import { getSpaces } from "./GetSpaces";
 import { postSpaces } from "./PostSpaces";
@@ -36,7 +37,12 @@ async function handler(
         break;
     }
   } catch (error: any) {
-    console.log(error);
+    if (error instanceof MissingFieldError) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify(error.message),
+      };
+    }
     return {
       statusCode: 500,
       body: JSON.stringify(error.message),

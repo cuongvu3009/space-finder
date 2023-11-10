@@ -6,17 +6,17 @@ process.env.TABLE_NAME = "SpaceStack-062bf889427a";
 handler(
   {
     // Post 1 space
-    // httpMethod: "POST",
-    // body: JSON.stringify({
-    //   location: "Dublin",
-    // }),
+    httpMethod: "POST",
+    body: JSON.stringify({
+      location: "Dublin",
+    }),
     // Get 1 space
     // httpMethod: "GET",
     // queryStringParameters: {
     //   id: "22b9d838-0393-4ebf-a74f-02a92e05a3ab",
     // },
     //  Get spaceS
-    httpMethod: "GET",
+    // httpMethod: "GET",
 
     // Update 1 space
     // httpMethod: "PUT",
@@ -33,4 +33,4 @@ handler(
     // },
   } as any,
   {} as any
-);
+).then((result) => console.log(result));
